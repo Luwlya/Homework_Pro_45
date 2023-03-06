@@ -15,18 +15,59 @@ import java.util.Arrays;
 
 public class Array4 {
     public static void main(String[] args) {
-        printArray(createSpiralArray(5, 3));
+        printArray(createSpiralArray(6, 5));
     }
 
     static int[][] createSpiralArray(int width, int height) {
         int[][] result = new int[height][width];
         int count = 0;
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
+        //i - index for height, j - index for width
+        int i = 0;
+        int j = -1;
+        Direction direction = Direction.RIGHT;
+        int horizontalStepCount = width;
+        int verticalStepCount = height;
+        int stepCount = horizontalStepCount;
+        while (stepCount > 0) {
+            for (int step = 0; step < stepCount; step++) {
+                if (direction == Direction.RIGHT) {
+                    j++;
+                } else if (direction == Direction.LEFT) {
+                    j--;
+                } else if (direction == Direction.DOWN) {
+                    i++;
+                } else {
+                    i--;
+                }
                 result[i][j] = count;
                 count++;
             }
+            if (direction == Direction.RIGHT) {
+                direction = Direction.DOWN;
+                verticalStepCount--;
+                stepCount = verticalStepCount;
+            } else if (direction == Direction.LEFT) {
+                direction = Direction.UP;
+                verticalStepCount--;
+                stepCount = verticalStepCount;
+            } else if (direction == Direction.DOWN) {
+                direction = Direction.LEFT;
+                horizontalStepCount--;
+                stepCount = horizontalStepCount;
+            } else {
+                direction = Direction.RIGHT;
+                horizontalStepCount--;
+                stepCount = horizontalStepCount;
+            }
+
         }
+
+//        for (int i = 0; i < height; i++) {
+//            for (int j = 0; j < width; j++) {
+//                result[i][j] = count;
+//                count++;
+//            }
+//        }
         return result;
     }
 
@@ -44,6 +85,13 @@ public class Array4 {
         }
 
     }
+}
+
+enum Direction {
+    RIGHT,
+    DOWN,
+    LEFT,
+    UP
 }
 
 
