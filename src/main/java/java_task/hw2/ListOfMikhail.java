@@ -8,5 +8,30 @@ package java_task.hw2;
       если нет то выдает сообщение
 */
 
-public class ArrayList {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+public class ListOfMikhail {
+    private final ArrayList<Integer> list = new ArrayList<>();
+
+    @Override
+    public String toString() {
+        return "ListOfMikhail{" +
+                "list=" + list +
+                '}';
+    }
+
+    public static void main(String[] args) {
+        ListOfMikhail someList = new ListOfMikhail();
+        someList.fillRandomNumber();
+        System.out.println(someList);
+    }
+
+    void fillRandomNumber() {
+        Random random = new Random();
+        while (list.size() < 10) {
+            list.add(random.nextInt(150));
+        }
+    }
 }
