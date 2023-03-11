@@ -33,11 +33,9 @@ public class Task2 {
         }
         int middleIndex = count / 2;
 
-        int i = 0;
         Iterator<Integer> iterator1 = list.iterator();
-        while (i < middleIndex) {
+        for (int i = 0; i < middleIndex; i++) {
             iterator1.next();
-            i++;
         }
         return iterator1.next();
 
