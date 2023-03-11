@@ -9,6 +9,9 @@ package java_pro.hw1;
 */
 
 
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
+
 public enum MovementType {
     PLANE(3.33),
     TRAIN(5.00),
@@ -37,5 +40,4 @@ public enum MovementType {
     public double getDurationInSeconds() {
         return duration * 3600;
     }
-
 }
