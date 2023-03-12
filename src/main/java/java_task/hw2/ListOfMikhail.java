@@ -1,6 +1,6 @@
 package java_task.hw2;
 /*    Написать класс который содержит ArrayList и методы:
-      заполняют лист рандомными цифрами
+      + заполняют лист рандомными цифрами
       перебирают Итератором и выводят на экран все четные
       перебирают итератором и выводят на экран все нечетные
       генерируют рандомную стрингу длиной 5
@@ -9,7 +9,7 @@ package java_task.hw2;
 */
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Iterator;
 import java.util.Random;
 
 public class ListOfMikhail {
@@ -17,21 +17,30 @@ public class ListOfMikhail {
 
     @Override
     public String toString() {
-        return "ListOfMikhail{" +
-                "list=" + list +
-                '}';
+        return "ListOfMikhail{" + "list=" + list + '}';
     }
 
     public static void main(String[] args) {
         ListOfMikhail someList = new ListOfMikhail();
-        someList.fillRandomNumber();
+        someList.fillRandomNumbers();
         System.out.println(someList);
+        someList.printEvenNumbers();
     }
 
-    void fillRandomNumber() {
+    void fillRandomNumbers() {
         Random random = new Random();
         while (list.size() < 10) {
-            list.add(random.nextInt(150));
+            list.add(random.nextInt(10));
+        }
+    }
+
+    void printEvenNumbers() {
+        Iterator<Integer> iterator = list.iterator();
+        while (iterator.hasNext()) {
+            int element = iterator.next();
+            if (element % 2 == 0) {
+                System.out.println(element);
+            }
         }
     }
 }
