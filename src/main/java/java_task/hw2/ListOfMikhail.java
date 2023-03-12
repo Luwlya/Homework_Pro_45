@@ -1,11 +1,11 @@
 package java_task.hw2;
 /*    Написать класс который содержит ArrayList и методы:
       + заполняют лист рандомными цифрами
-      перебирают Итератором и выводят на экран все четные
-      перебирают итератором и выводят на экран все нечетные
-      генерируют рандомную стрингу длиной 5
-      перебираю итератором эту стрингу с конца и выводит тот символ который нужен если он есть,
-      если нет то выдает сообщение
+      +перебирают Итератором и выводят на экран все четные
+      +перебирают итератором и выводят на экран все нечетные
+      +генерируют рандомную стрингу длиной 5
+      +перебираю итератором эту стрингу с конца и выводит тот символ который нужен если он есть,
+      +если нет то выдает сообщение
 */
 
 import java.util.ArrayList;
@@ -25,6 +25,12 @@ public class ListOfMikhail {
         someList.fillRandomNumbers();
         System.out.println(someList);
         someList.printEvenNumbers();
+        someList.printOddNumbers();
+        ListOfMikhail stringList = new ListOfMikhail();
+        System.out.println(stringList.generateRandomString());
+        stringList.printCharIfInString("НАФТА", 'Л');
+        stringList.printCharIfInString("НАФТА", 'Ф');
+        stringList.printCharIfInString("НАФТА", 'А');
     }
 
     void fillRandomNumbers() {
@@ -43,4 +49,39 @@ public class ListOfMikhail {
             }
         }
     }
+
+    void printOddNumbers() {
+        for (int element : list) {
+            if (element % 2 != 0) {
+                System.out.println(element);
+            }
+        }
+    }
+
+    String generateRandomString() {
+        Random random = new Random();
+        char[] alphabet = {'А', 'Б', 'В', 'Г', 'Ґ', 'Д', 'Е', 'Є', 'Ж', 'З',
+                'И', 'І', 'Ї', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С',
+                'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ь', 'Ю', 'Я',};
+        String result = "";
+        for (int i = 0; i < 5; i++) {
+            int index = random.nextInt(alphabet.length);
+            result += alphabet[index];
+        }
+        return result;
+    }
+
+    void printCharIfInString(String input, char theOne) {
+        boolean found = false;
+        for (int i = input.length() - 1; i >= 0; i--) {
+            if (input.charAt(i) == theOne) {
+                System.out.println(theOne);
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("There is no such symbol!");
+        }
+    }
+
 }
