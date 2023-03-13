@@ -47,3 +47,19 @@ public class Task2 {
         }
     }
 }
+/*
+alternative
+    static void appearNonDuplicate(int[] nums) {
+        for (int j = 0; j < nums.length; j++) {
+            boolean isDuplicated = false;
+            for (int i = 0; i < nums.length; i++) {
+                if (nums[j] == nums[i] && i != j) {
+                    isDuplicated = true;
+                    break;
+                }
+            }
+            if (! isDuplicated) {
+                System.out.println(nums[j]);
+                break;
+            }
+        }*/
