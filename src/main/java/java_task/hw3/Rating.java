@@ -8,8 +8,8 @@ public enum Rating {
     RATING_E;
 
 
-    public static double getRatingCoefficient(Rating rating) {
-        switch (rating) {
+    public double getCoefficient() {
+        switch (this) {
             case RATING_A:
                 return 1.2;
             case RATING_B:

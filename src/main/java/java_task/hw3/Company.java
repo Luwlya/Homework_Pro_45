@@ -34,8 +34,8 @@ public class Company {
 
     public void applyRatingCoefficients() {
         for (Employee employee : employeeList) {
-            double coefficient = Rating.getRatingCoefficient(employee.getRating());
-            double newSalary = employee.getSalary() * coefficient;
+            double coefficient = employee.getRating().getCoefficient();
+            int newSalary = (int) (employee.getSalary() * coefficient);
             employee.setSalary(newSalary);
         }
     }

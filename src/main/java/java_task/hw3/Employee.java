@@ -4,10 +4,10 @@ public class Employee {
     private String fullName;
     private int age;
     private Rating rating;
-    private double salary;
+    private int salary;
     private Department department;
 
-    public Employee(String fullName, int age, Rating rating, double salary, Department department) {
+    public Employee(String fullName, int age, Rating rating, int salary, Department department) {
         this.fullName = fullName;
         this.age = age;
         this.rating = rating;
@@ -27,11 +27,11 @@ public class Employee {
         return rating;
     }
 
-    public double getSalary() {
+    public int getSalary() {
         return salary;
     }
 
-    public void setSalary(double salary) {
+    public void setSalary(int salary) {
         this.salary = salary;
     }
 
