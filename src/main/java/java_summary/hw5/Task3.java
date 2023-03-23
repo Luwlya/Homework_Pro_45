@@ -1,6 +1,7 @@
 package java_summary.hw5;
 /*Task 3. Дана строка. Вывести количество появлений каждого символа в этой строке. Например:
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu feugiat tellus. Nam molestie diam sed libero egestas pellentesque. Nulla.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu feugiat tellus.
+        Nam molestie diam sed libero egestas pellentesque. Nulla.
 
 
         Символ e встречается 20 раз.
@@ -26,5 +27,28 @@ package java_summary.hw5;
         Символ q встречается 1 раз.*/
 
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Task3 {
+    public static void main(String[] args) {
+        printCharacterCounts("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu feugiat tellus. " +
+                "Nam molestie diam sed libero egestas pellentesque. Nulla.");
+    }
+
+    public static void printCharacterCounts(String s) {
+        Map<Character, Integer> countMap = new HashMap<>();
+        for (int i = 0; i < s.length(); i++) {
+            char character = s.charAt(i);
+            Integer count = countMap.get(character);
+            if (count == null) {
+                count = 0;
+            }
+            count++;
+            countMap.put(character, count);
+        }
+        for (Map.Entry<Character, Integer> entry : countMap.entrySet()) {
+            System.out.println("Символ " + entry.getKey() + " встречается " + entry.getValue() + " раз.");
+        }
+    }
 }
