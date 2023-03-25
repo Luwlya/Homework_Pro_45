@@ -48,7 +48,7 @@ public class Task3 {
             countMap.put(character, count);
         }
         for (Map.Entry<Character, Integer> entry : countMap.entrySet()) {
-            System.out.println("Символ " + entry.getKey() + " встречается " + entry.getValue() + " раз.");
+            System.out.println("Символ '" + entry.getKey() + "' встречается " + entry.getValue() + " раз.");
         }
     }
 }
