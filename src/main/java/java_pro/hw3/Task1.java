@@ -5,9 +5,9 @@ package java_pro.hw3;
 
 + 2. Найти количество уникальных слов в тексте с помощью коллекции HashSet:
 
-3, Создать множество HashSet и вывести элементы, у которых длина строки больше 5 символов:
++ 3, Создать множество HashSet и вывести элементы, у которых длина строки больше 5 символов:
 
-4. Создать карту HashMap, в которой хранятся номера телефонов и фамилии людей. По номеру телефона вывести фамилию:
++ 4. Создать карту HashMap, в которой хранятся номера телефонов и фамилии людей. По номеру телефона вывести фамилию:
 
 5. Написать метод, который принимает на вход два списка (LinkedList) и возвращает новый список,
 состоящий только из элементов, которые есть в обоих списках.
@@ -22,10 +22,6 @@ package java_pro.hw3;
 
 import java.util.*;
 
-/*A final note may be added, on a point raised by several students of the lore of the
-        period. On Thror's Map is written Here of old was Thrain King under the Mountain; yet
-        Thrain was the son of Thror, the last King under the Mountain before the coming of the
-        dragon. The Map, however, is not in error.*/
 public class Task1 {
     public static void main(String[] args) {
         LinkedList<String> stringList = new LinkedList<>();
@@ -48,6 +44,11 @@ public class Task1 {
         System.out.println(countUniqueWords(input));
         System.out.println(countUniqueWords("lu lu lu ku ku ku tra-la-la Tra-la-la Ku ki"));
 
+        Set<String> newSet = new HashSet<>();
+        newSet.addAll(List.of(input.split("\\s")));
+        showElements(newSet);
+
+        showSurname();
 
     }
 
@@ -60,4 +61,30 @@ public class Task1 {
         HashSet<String> wordsSet = new HashSet<>(List.of(words));
         return wordsSet.size();
     }
+
+    public static void showElements(Set<String> input) {
+        for (String s : input) {
+            if (s.length() > 5) {
+                System.out.println("'" + s + "'");
+            }
+        }
+    }
+
+    public static void showSurname() {
+        Map<String, String> phoneBook = new HashMap<>();
+        phoneBook.put("+380670000000", "Stepan Bandera");
+        phoneBook.put("+380671200000", "Lesya Ukrainka");
+        phoneBook.put("+380670011000", "Vasyl Stus");
+        phoneBook.put("+380670000460", "Vasil Simonenko");
+        phoneBook.put("+380671230000", "Oles' Gonchar");
+        phoneBook.put("+380962000002", "Ivan Franko");
+        phoneBook.put("+380507800000", "Lina Kostenko");
+        phoneBook.put("+380500006710", "Ostap Vishnya");
+        phoneBook.put("+380945670000", "Les' Pidderevyanskii");
+        System.out.println(phoneBook.get("+380670011000"));
+        System.out.println(phoneBook.get("+380670000460"));
+        System.out.println(phoneBook.get("+380962000002"));
+    }
+
+
 }
