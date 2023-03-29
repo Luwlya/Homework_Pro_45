@@ -9,13 +9,13 @@ package java_pro.hw3;
 
 + 4. Создать карту HashMap, в которой хранятся номера телефонов и фамилии людей. По номеру телефона вывести фамилию:
 
-5. Написать метод, который принимает на вход два списка (LinkedList) и возвращает новый список,
++ 5. Написать метод, который принимает на вход два списка (LinkedList) и возвращает новый список,
 состоящий только из элементов, которые есть в обоих списках.
 
-6 Создать класс Person с полями name и age. Создать ArrayList с объектами класса Person
++6 Создать класс Person с полями name и age. Создать ArrayList с объектами класса Person
 и отсортировать его по возрасту в порядке возрастания
 
-7. Создать класс Book с полями title, author и price.
++7. Создать класс Book с полями title, author и price.
 Создать TreeSet с объектами класса Book и отсортировать его по цене в порядке убывания
 */
 
@@ -49,6 +49,13 @@ public class Task1 {
         showElements(newSet);
 
         showSurname();
+
+        LinkedList<String> stringList2 = new LinkedList<>();
+        stringList2.add("final");
+        stringList2.add("however");
+        stringList2.add("Map");
+        stringList2.add("Mountain");
+        System.out.println(intersect(stringList, stringList2));
 
     }
 
@@ -86,5 +93,14 @@ public class Task1 {
         System.out.println(phoneBook.get("+380962000002"));
     }
 
-
+    public static <E> List<E> intersect(LinkedList<E> list1, LinkedList<E> list2) {
+        List<E> result = new ArrayList<>();
+        Set<E> set = new HashSet<E>(list2);
+        for (E e : list1) {
+            if (set.contains(e)) {
+                result.add(e);
+            }
+        }
+        return result;
+    }
 }
