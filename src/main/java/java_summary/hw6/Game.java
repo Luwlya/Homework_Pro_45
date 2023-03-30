@@ -49,17 +49,16 @@ public class Game {
     public static int sum(List<String> input) {
         Deque<Integer> scores = new ArrayDeque<>();
         for (String s : input) {
-            if ("C".equals(s)) {
-                scores.removeLast();
-            } else if ("D".equals(s)) {
-                scores.addLast(scores.getLast() * 2);
-            } else if ("+".equals(s)) {
-                Integer last = scores.removeLast();
-                Integer previous = scores.getLast();
-                scores.addLast(last);
-                scores.addLast(last + previous);
-            } else {
-                scores.addLast(Integer.parseInt(s));
+            switch (s) {
+                case "C" -> scores.removeLast();
+                case "D" -> scores.addLast(scores.getLast() * 2);
+                case "+" -> {
+                    Integer last = scores.removeLast();
+                    Integer previous = scores.getLast();
+                    scores.addLast(last);
+                    scores.addLast(last + previous);
+                }
+                default -> scores.addLast(Integer.parseInt(s));
             }
         }
         int sum = 0;
