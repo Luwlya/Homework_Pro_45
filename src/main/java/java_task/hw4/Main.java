@@ -13,7 +13,8 @@ public class Main {
         employeeStorage.add(tailshot);
         System.out.println(employeeStorage.delete(tailshot));
         System.out.println(employeeStorage.delete(tailshot));
-        System.out.println(employeeStorage.search("Headshot"));
+
+
         for (Employee employee : employeeStorage) {
             System.out.println(employee);
         }
