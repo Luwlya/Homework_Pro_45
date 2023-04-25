@@ -48,7 +48,6 @@ public class Task1 {
                 .boxed()
                 .flatMap(x -> IntStream.range(x + 1, numbers.size()).mapToObj(i -> new Integer[]{numbers.get(x), numbers.get(i)}))
                 .filter(n -> n[0] + n[1] == 3 || n[0] + n[1] == 5)
-//                .forEach(arr-> System.out.println(arr[0] + " " + arr[1]));
                 .map(Arrays::toString).forEach(System.out::println);
         System.out.println("***************************");
 
